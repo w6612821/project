@@ -1,4 +1,4 @@
-# project
+# 组件脚手架
 
 ## Project setup
 ```
