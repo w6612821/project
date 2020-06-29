@@ -9,7 +9,7 @@ const test = {
     fatchList ({ commit, dispatch }, payload) {
       console.log(payload, dispatch)
       getList().then(res => {
-        commit('setList', res.list)
+        commit('setList', res.data)
         // dispatch('fatchList')
       })
     }
