@@ -1,4 +1,4 @@
-import { getList } from '../api/server'
+import { getList } from '../api/index'
 
 const test = {
   namespaced: true,

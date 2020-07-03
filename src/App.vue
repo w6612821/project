@@ -1,12 +1,13 @@
 <template>
   <div id="app">
+    <router-view v-if="closeSecond == 0" />
     <div id="nav">
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
     </div>
-    <router-view  v-if="closeSecond == 0"/>
+
     <transition name="fade">
-      <div class="welcome-pic" v-if="closeSecond !== 0">
+      <div class="welcome-pic" v-if="isdisplay">
         <button @click="closeWelcome">跳过({{closeSecond}}s)</button>
       </div>
     </transition>
@@ -16,25 +17,27 @@
 export default {
   data() {
     return {
-      closeSecond: 5
+      closeSecond: 5,
+      isdisplay: true
     };
   },
   created() {
-    let timer = setInterval(()=>{
-      this.welcome();
-      if(this.closeSecond == 0){
-        clearInterval(timer)
-      }
-    },1000)
-    
+    // this.closeWelcome()
   },
   methods: {
     welcome() {
       this.closeSecond = this.closeSecond - 1;
     },
     closeWelcome() {
-      this.closeSecond == 0;
-      // console.log(this.closeSecond);
+      // let timer = setInterval(() => {
+        this.welcome();
+      //   if (this.closeSecond == 0) {
+      //     clearInterval(timer);
+      //     this.closeWelcome();
+      //   }
+      // }, 1000);
+      // this.isdisplay = false;
+      console.log(this.isdisplay);
     }
   }
 };
